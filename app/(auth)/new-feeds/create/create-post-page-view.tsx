@@ -96,14 +96,14 @@ export default function CreatePostPageView() {
 								<div>{errorFormMessage('content', handleErrorValidate('content'))}</div>
 							</div>
 						</div>
-						<div className="field col-12 md:col-6">
+						<div className="field col-12">
 							<h5>hình ảnh</h5>
 							<div>
 
 								<FieldArray
 									name="imageFilePath"
 									render={arrayHelpers => (
-										<div className="grid grid-cols-5 gap-x-2 gap-y-3">
+										<div className="flex w-full flex-wrap">
 											{formik.values.imageFilePath && formik.values.imageFilePath.map((item, index) => {
 												return (
 													<div key={index}>

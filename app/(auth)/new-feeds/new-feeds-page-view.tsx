@@ -72,14 +72,14 @@ export default function NewFeedPageView(props: PropsComponent) {
         router.push(`/new-feeds?${params}`);
     };
     const toast = useRef<Toast>(null);
-    const [resultMessage, setResultMessage] = useSessionStorage("", "result-message");
+    const [resultMessage, setResultMessage] = useSessionStorage('', 'result-message');
     useEffect(() => {
         if (resultMessage) {
             toast.current?.show({
-                severity: "info",
-                summary: resultMessage,
+                severity: 'info',
+                summary: resultMessage
             });
-            setResultMessage("");
+            setResultMessage('');
         }
     }, [resultMessage, setResultMessage]);
 
@@ -88,7 +88,7 @@ export default function NewFeedPageView(props: PropsComponent) {
             <div className="card">
                 <Toast ref={toast} position="top-center" />
                 <Button label="Tạo bài viết (quản trị)" severity="info" onClick={() => router.push('/new-feeds/create')} />
-                <div className="mt-5 flex gap-4 align-items-center justify-content-center w-fit">
+                <div className="mt-5 flex gap-4 w-fit">
                     <span className="font-bold">Tìm kiếm theo</span>
                     <InputText id="name1" type="text" placeholder="content bài viết" />
                     <InputText id="name1" type="text" placeholder="tên tài khoản" />

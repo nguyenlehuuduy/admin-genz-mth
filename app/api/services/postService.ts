@@ -2,7 +2,7 @@
 import { formatDate, objectToQueryParams } from '@/app/ulti/ulti';
 import { PostForQuery } from '../types/post/PostForQuery';
 import { callGetRequest, callPostRequest } from './apiService';
-import { PostForResponse } from '../types/post/PostForResponse';
+import { PostForDetailResponse, PostForResponse } from '../types/post/PostForResponse';
 import { PaginationAndFilter } from '../types/pagination/pagination';
 
 export type PostForCard = {
@@ -34,9 +34,9 @@ export type PostForCard = {
 
 export async function getListPost(query: PostForQuery): Promise<
     | {
-          data: PostForCard[];
-          pagination: PaginationAndFilter;
-      }
+        data: PostForCard[];
+        pagination: PaginationAndFilter;
+    }
     | undefined
 > {
     try {
@@ -88,9 +88,66 @@ export async function uploadPost(body: PostForRequest): Promise<boolean | undefi
     }
 }
 
-export async function getDetailPost(postId: string): Promise<PostForCard | undefined> {
+export type PostDetailForCard = {
+    post_id: string;
+    content_text: string;
+    created_at: string;
+    total_reaction: number;
+    total_comment: number;
+    total_share: number;
+    image_post: Array<string>;
+    account: {
+        id: string;
+        name: string;
+        nick_name: string;
+        avata: string;
+    };
+    is_like: boolean;
+    comment_recent: Array<{
+        account: {
+            id: string;
+            name: string;
+            nick_name: string;
+            avata: string;
+        };
+        created_at: string;
+        content: string;
+    }>;
+    all_share_info?: Array<{
+        account: {
+            id: string;
+            name: string;
+            nick_name: string;
+            avata: string;
+        };
+        created_at: string;
+        updated_at: string;
+    }>;
+    all_like_info?: Array<{
+        account: {
+            id: string;
+            name: string;
+            nick_name: string;
+            avata: string;
+        };
+        created_at: string;
+        updated_at: string;
+    }>;
+    all_comment?: Array<{
+        account: {
+            id: string;
+            name: string;
+            nick_name: string;
+            avata: string;
+        };
+        created_at: string;
+        updated_at: string;
+        content: string;
+    }>;
+};
+export async function getDetailPost(postId: string): Promise<PostDetailForCard | undefined> {
     const result = await callGetRequest(`/post/${postId}`);
-    const data: PostForResponse = result.response;
+    const data: PostForDetailResponse = result.response;
     if (result.status === 200) {
         return {
             account: {
@@ -116,7 +173,40 @@ export async function getDetailPost(postId: string): Promise<PostForCard | undef
             post_id: data.id,
             total_comment: data.totalComment,
             total_reaction: data.totalReaction,
-            total_share: data.totalShare
+            total_share: data.totalShare,
+            all_comment: data.all_comment?.map(item => {
+                return {
+                    ...item,
+                    account: {
+                        ...item.account,
+                        avata: `${process.env.API_BASE_URL}${data.account.avata}`,
+                    },
+                    created_at: formatDate(item.created_at, "DD/MM/YYYY HH:mm"),
+                    updated_at: formatDate(item.updated_at, "DD/MM/YYYY HH:mm")
+                }
+            }),
+            all_like_info: data.all_like_info?.map(item => {
+                return {
+                    ...item,
+                    account: {
+                        ...item.account,
+                        avata: `${process.env.API_BASE_URL}${data.account.avata}`,
+                    },
+                    created_at: formatDate(item.created_at, "DD/MM/YYYY HH:mm"),
+                    updated_at: formatDate(item.updated_at, "DD/MM/YYYY HH:mm")
+                }
+            }),
+            all_share_info: data.all_share_info?.map(item => {
+                return {
+                    ...item,
+                    account: {
+                        ...item.account,
+                        avata: `${process.env.API_BASE_URL}${data.account.avata}`,
+                    },
+                    created_at: formatDate(item.created_at, "DD/MM/YYYY HH:mm"),
+                    updated_at: formatDate(item.updated_at, "DD/MM/YYYY HH:mm")
+                }
+            })
         };
     }
 }

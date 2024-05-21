@@ -72,7 +72,7 @@ export default function FileUploadItem(props: Props) {
       {!imageSrcUrl && (
         <>
           <div
-            className="border-dashed border-2 border-gray-300 rounded-xl w-44 h-44 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-50"
+            className="border-dashed border-round p-5 border-gray-300 rounded-xl w-44 h-44 flex flex-column align-items-center"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onClick={() => {
