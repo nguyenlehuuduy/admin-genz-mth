@@ -1,7 +1,6 @@
 import { API_PRIVATE_URL, SESSION_KEY_VALUE } from '@/app/lib/constant';
 
 const API_PATH = process.env.API_PRIVATE_URL || API_PRIVATE_URL;
-const SESSION_KEY = 'Authorization';
 
 export interface ApiResponse {
     status: number;
@@ -44,6 +43,7 @@ export async function callPostRequest(url: string, body: any) {
             'Content-type': 'application/json',
             Authorization: `Bearer ${sessionKey || process.env.SESSION_KEY}`
         },
+        cache: 'no-store',
         body: JSON.stringify(body)
     });
     const jo = await res.json();
@@ -58,15 +58,36 @@ export async function callPutRequest<Response, Request>(
     headers: Headers;
     response: Response;
 }> {
-    const sessionKey = undefined;
-    const headers: HeadersInit = [['Content-Type', 'application/json']];
-    if (sessionKey) {
-        headers.push(['Cookie', `${SESSION_KEY}=${sessionKey}`]);
-    }
-
+    const sessionKey = SESSION_KEY_VALUE;
     const res = await fetch(`${API_PATH}${url}`, {
-        method: 'PUT',
-        headers: headers,
+        method: 'PATCH',
+        headers: {
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${sessionKey || process.env.SESSION_KEY}`
+        },
+        body: JSON.stringify(body)
+    });
+    const jo = await res.json();
+
+    return { status: res.status, headers: res.headers, response: jo };
+}
+
+
+export async function callDeleteRequest<Response, Request>(
+    url: string,
+    body?: Request
+): Promise<{
+    status: number;
+    headers: Headers;
+    response: Response;
+}> {
+    const sessionKey = SESSION_KEY_VALUE;
+    const res = await fetch(`${API_PATH}${url}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${sessionKey || process.env.SESSION_KEY}`
+        },
         body: JSON.stringify(body)
     });
     const jo = await res.json();

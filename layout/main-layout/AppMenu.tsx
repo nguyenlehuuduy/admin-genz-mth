@@ -9,13 +9,23 @@ const AppMenu = () => {
     const model: AppMenuItem[] = [
         {
             label: 'Quản lí',
-            items: [{
-                label: 'bài viết', icon: 'pi pi-fw pi-list',
-                items: [
-                    { label: 'danh sách bài viết', icon: 'pi pi-fw pi-bookmark', to: '/new-feeds' },
-                    { label: 'tạo bài viết', icon: 'pi pi-fw pi-bookmark', to: '/new-feeds/create' },
-                ]
-            }]
+            items: [
+                {
+                    label: 'bài viết', icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'danh sách bài viết', icon: 'pi pi-fw pi-bookmark', to: '/new-feeds' },
+                        { label: 'tạo bài viết', icon: 'pi pi-fw pi-bookmark', to: '/new-feeds/create' },
+                    ]
+                },
+                // Thêm feature mới vào mục 'Quản lí' ở đây
+                {
+                    label: 'feature', icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'danh sách feature', icon: 'pi pi-fw pi-bookmark', to: '/features' },
+                        { label: 'tạo feature', icon: 'pi pi-fw pi-bookmark', to: '/features/create' },
+                    ]
+                }
+            ],
         }
     ];
 
