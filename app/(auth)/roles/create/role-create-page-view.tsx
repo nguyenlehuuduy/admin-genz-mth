@@ -52,7 +52,7 @@ export default function CreateRolePageView(props: PropsComponent) {
       }).then((rs) => {
         if (rs) {
           setResultMessage("Tạo mới một quyền thành công");
-          router.push("/roles")
+          router.replace("/roles")
         }
       })
       setLoading(false);

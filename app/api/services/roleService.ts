@@ -1,6 +1,6 @@
 import { formatDate } from "@/app/ulti/ulti";
 import { RoleForResponse } from "../types/role/roleForResponse";
-import { callGetRequest, callPostRequest } from "./apiService";
+import { callDeleteRequest, callGetRequest, callPostRequest } from "./apiService";
 import { RoleForPost } from "../types/role/roleForPost";
 
 export type RoleForCard = {
@@ -41,4 +41,16 @@ export async function postRole(body: RoleForPost): Promise<RoleForCard | undefin
       updated_at: formatDate(data.updated_at, "DD/MM/YYYY HH:mm"),
     }
   }
+}
+
+export async function deleteRole(idRole: string): Promise<boolean | undefined> {
+  try {
+    const result = await callDeleteRequest(`/roles/${idRole}`);
+    if (result.status === 200) {
+      return true
+    }
+  } catch (error) {
+    console.error(error)
+  }
+
 }
