@@ -41,6 +41,13 @@ const AppMenu = () => {
                         { label: 'tạo hot content', icon: 'pi pi-fw pi-bookmark', to: '/hot-content/create' },
                     ],
 
+                },
+                {
+                    label: 'feature', icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'danh sách feature', icon: 'pi pi-fw pi-bookmark', to: '/features' },
+                        { label: 'tạo feature', icon: 'pi pi-fw pi-bookmark', to: '/features/create' },
+                    ]
                 }
             ]
         }
