@@ -69,7 +69,6 @@ export default function ListRolePageView(props: PropsComponent) {
               setDisplayConfirmation(true)
               setSelectRole(data.id)
             }} />
-            <Button label="Chỉnh sửa" severity="success" outlined />
           </div>
         )}></Column>
       </DataTable>
