@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import useSWR from 'swr';
 import ListTabMenuPageView from './list-tab-menu-page-view';
 
-async function getListFeatures(): Promise<Array<TabMenuForCard> | undefined> {
+async function getListTabMenu(): Promise<Array<TabMenuForCard> | undefined> {
     try {
         return await getAllTabMenu();
     } catch (error) {
@@ -13,17 +13,17 @@ async function getListFeatures(): Promise<Array<TabMenuForCard> | undefined> {
 }
 
 const getData = async () => {
-    const [listFeature] = await Promise.all([getListFeatures()]);
-    return { listFeature };
+    const [listTabMenu] = await Promise.all([getListTabMenu()]);
+    return { listTabMenu };
 };
 
-export default function FeatureListPageDataFetcher() {
-    const { data, error, isLoading } = useSWR('getFeatureListPageData', () => getData());
+export default function TabMenuListPageDataFetcher() {
+    const { data, error, isLoading } = useSWR('getTabMenuListPageData', () => getData());
     if (error) {
         notFound();
     }
     if (isLoading || !data) {
         return <div>đang tải...</div>;
     }
-    return <ListTabMenuPageView listTabMenu={data.listFeature ?? []} />;
+    return <ListTabMenuPageView listTabMenu={data.listTabMenu ?? []} />;
 }

@@ -14,7 +14,7 @@ export type TabMenuForCard = {
 
 export async function getAllTabMenu(): Promise<Array<TabMenuForCard> | undefined> {
     const result = await callGetRequest(`/tab-menu`);
-    const data: Array<TabMenuForCard> = result.response;
+    const data: Array<TabMenuForResponse> = result.response;
     if (result.status === 200) {
         const res: Array<TabMenuForCard> = [];
         for (const item of data) {

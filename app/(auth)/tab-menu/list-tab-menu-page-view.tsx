@@ -40,7 +40,7 @@ export default function ListTabMenuPageView(props: PropsComponent) {
             idTabMenu &&
                 (await deleteTabMenu(idTabMenu).then((rs) => {
                     if (rs) {
-                        mutate('getFeatureListPageData');
+                        mutate('getTabMenuListPageData');
                         setSelectFeature('');
                         setLoading(false);
                         setDisplayConfirmation(false);
@@ -53,7 +53,7 @@ export default function ListTabMenuPageView(props: PropsComponent) {
     return (
         <div className="col-12">
             <div className="card">
-                <h5>Danh sách Features</h5>
+                <h5>Danh sách tab menu</h5>
                 <Button
                     label="Thêm mới"
                     severity="success"
@@ -62,20 +62,17 @@ export default function ListTabMenuPageView(props: PropsComponent) {
                         router.push('/tab-menu/create');
                     }}
                 />
-                <DataTable value={props.listTabMenu} scrollable scrollHeight="400px" className="mt-3">
+                <DataTable value={props.listTabMenu} scrollable scrollHeight="700px" className="mt-3">
                     <Column field="id" header="Id" style={{ flexGrow: 1, flexBasis: '100px' }}></Column>
                     <Column field="name" header="Tên Tab Menu" style={{ flexGrow: 1, flexBasis: '160px' }} frozen className="font-bold"></Column>
                     <Column field="iconUrl" header="Icon Url" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
                     <Column field="url" header="Url" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
-                    <Column field="created_at" header="Ngày tạo" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
-                    <Column field="updated_at" header="Ngày cập nhật" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
                     <Column
                         field="tacvu"
                         header="Tác Vụ"
                         style={{ flexGrow: 1, flexBasis: '200px' }}
                         body={(data: TabMenuForCard) => (
                             <div className="flex gap-3">
-                                <Button label="Chỉnh sửa" severity="info" outlined />
                                 <Button
                                     label="Xóa"
                                     severity="secondary"
