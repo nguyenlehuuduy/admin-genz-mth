@@ -37,9 +37,8 @@ export default function ListPermissionPostPageView(props: PropsComponent) {
       setLoading(true)
       idPermissionPost && await deletePermissionPost(idPermissionPost).then((rs) => {
         if (rs) {
-          mutate('getPermissonPostListPageData')
-          setSelectPermissionPost("");
-          setLoading(false);
+          mutate('getPermissionPostListPageData')
+          setSelectPermissionPost("");          setLoading(false);  
           setDisplayConfirmation(false);
         }
       })

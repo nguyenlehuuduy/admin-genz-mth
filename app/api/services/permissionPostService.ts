@@ -40,7 +40,7 @@ export async function postPermissionPost(body: PermissionPostForPost): Promise<P
 export async function deletePermissionPost(idPermissionPost: string): Promise<boolean | undefined> {
   try {
     const result = await callDeleteRequest(`/permission-post/${idPermissionPost}`);
-    if (result.status > 200) {
+    if (result.status === 200) {
       return true
     }
   } catch (error) {
