@@ -57,7 +57,14 @@ const AppMenu = () => {
                         { label: 'danh sách feature', icon: 'pi pi-fw pi-bookmark', to: '/features' },
                         { label: 'tạo feature', icon: 'pi pi-fw pi-bookmark', to: '/features/create' },
                     ]
-                }
+                },
+                {
+                    label: 'type-message', icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'danh sách type-message', icon: 'pi pi-fw pi-bookmark', to: '/type-message' },
+                        { label: 'tạo type-message', icon: 'pi pi-fw pi-bookmark', to: '/type-message/create' },
+                    ]
+                },
             ]
         }
     ];
