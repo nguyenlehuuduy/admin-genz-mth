@@ -19,6 +19,15 @@ const AppMenu = () => {
                     ]
                 },
                 {
+                    label: 'quyền bài viết',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'danh sách quyền bài viết', icon: 'pi pi-fw pi-bookmark', to: '/permission-post'},
+                        { label: 'tạo quyền bài viết', icon: 'pi pi-fw pi-bookmark', to: '/permission-post/create' }
+
+                    ]
+                },
+                {
                     label: 'role (quyền)',
                     icon: 'pi pi-fw pi-list',
                     items: [
