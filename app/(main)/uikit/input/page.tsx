@@ -139,8 +139,8 @@ const InputDemo: Page = () => {
                     alt={option.name}
                     src={`/demo/images/flag/flag_placeholder.png`}
                     onError={(e) =>
-                        (e.currentTarget.src =
-                            "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+                    (e.currentTarget.src =
+                        "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
                     }
                     className={`flag flag-${option.code.toLowerCase()}`}
                     style={{ width: "21px" }}

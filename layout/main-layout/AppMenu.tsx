@@ -22,9 +22,8 @@ const AppMenu = () => {
                     label: 'quyền bài viết',
                     icon: 'pi pi-fw pi-list',
                     items: [
-                        { label: 'danh sách quyền bài viết', icon: 'pi pi-fw pi-bookmark', to: '/permission-post'},
+                        { label: 'danh sách quyền bài viết', icon: 'pi pi-fw pi-bookmark', to: '/permission-post' },
                         { label: 'tạo quyền bài viết', icon: 'pi pi-fw pi-bookmark', to: '/permission-post/create' }
-
                     ]
                 },
                 {
@@ -44,27 +43,53 @@ const AppMenu = () => {
                     ]
                 },
                 {
-                    label: 'hot content', icon: 'pi pi-fw pi-list',
-                    items: [
-                        { label: 'danh sách hot content', icon: 'pi pi-fw pi-bookmark', to: '/hot-content' },
-                        { label: 'tạo hot content', icon: 'pi pi-fw pi-bookmark', to: '/hot-content/create' },
-                    ],
-
-                },
-                {
-                    label: 'feature', icon: 'pi pi-fw pi-list',
+                    label: 'feature',
+                    icon: 'pi pi-fw pi-list',
                     items: [
                         { label: 'danh sách feature', icon: 'pi pi-fw pi-bookmark', to: '/features' },
-                        { label: 'tạo feature', icon: 'pi pi-fw pi-bookmark', to: '/features/create' },
+                        { label: 'tạo feature', icon: 'pi pi-fw pi-bookmark', to: '/features/create' }
                     ]
                 },
                 {
-                    label: 'type-message', icon: 'pi pi-fw pi-list',
+                    label: 'type-message',
+                    icon: 'pi pi-fw pi-list',
                     items: [
                         { label: 'danh sách type-message', icon: 'pi pi-fw pi-bookmark', to: '/type-message' },
-                        { label: 'tạo type-message', icon: 'pi pi-fw pi-bookmark', to: '/type-message/create' },
+                        { label: 'tạo type-message', icon: 'pi pi-fw pi-bookmark', to: '/type-message/create' }
                     ]
                 },
+                {
+                    label: 'Hot content',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'Danh sách hotcontent', icon: 'pi pi-fw pi-bookmark', to: '/hot-content' },
+                        { label: 'Tạo content', icon: 'pi pi-fw pi-bookmark', to: '/hot-content/create' }
+                    ]
+                },
+                {
+                    label: 'Notification',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'Danh sách thông báo từ admin', icon: 'pi pi-fw pi-bookmark', to: '/notifications' },
+                        { label: 'Tạo thông báo', icon: 'pi pi-fw pi-bookmark', to: '/notifications/create' }
+                    ]
+                },
+                {
+                    label: 'loại thông báo',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'Danh sách loại thông báo', icon: 'pi pi-fw pi-bookmark', to: '/type-notifications' },
+                        { label: 'Tạo loại thông báo', icon: 'pi pi-fw pi-bookmark', to: '/type-notifications/create' }
+                    ]
+                },
+                {
+                    label: 'loại ảnh',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'Danh sách các loại ảnh được lưu', icon: 'pi pi-fw pi-bookmark', to: '/type-images' },
+                        { label: 'Tạo một loại ảnh', icon: 'pi pi-fw pi-bookmark', to: '/type-images/create' }
+                    ]
+                }
             ]
         }
     ];
