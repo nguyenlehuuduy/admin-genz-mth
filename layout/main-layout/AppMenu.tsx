@@ -43,14 +43,6 @@ const AppMenu = () => {
                     ]
                 },
                 {
-                    label: 'hot content',
-                    icon: 'pi pi-fw pi-list',
-                    items: [
-                        { label: 'danh sách hot content', icon: 'pi pi-fw pi-bookmark', to: '/hot-content' },
-                        { label: 'tạo hot content', icon: 'pi pi-fw pi-bookmark', to: '/hot-content/create' }
-                    ]
-                },
-                {
                     label: 'feature',
                     icon: 'pi pi-fw pi-list',
                     items: [
@@ -72,6 +64,30 @@ const AppMenu = () => {
                     items: [
                         { label: 'Danh sách hotcontent', icon: 'pi pi-fw pi-bookmark', to: '/hot-content' },
                         { label: 'Tạo content', icon: 'pi pi-fw pi-bookmark', to: '/hot-content/create' }
+                    ]
+                },
+                {
+                    label: 'Notification',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'Danh sách thông báo từ admin', icon: 'pi pi-fw pi-bookmark', to: '/notifications' },
+                        { label: 'Tạo thông báo', icon: 'pi pi-fw pi-bookmark', to: '/notifications/create' }
+                    ]
+                },
+                {
+                    label: 'loại thông báo',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'Danh sách loại thông báo', icon: 'pi pi-fw pi-bookmark', to: '/type-notifications' },
+                        { label: 'Tạo loại thông báo', icon: 'pi pi-fw pi-bookmark', to: '/type-notifications/create' }
+                    ]
+                },
+                {
+                    label: 'loại ảnh',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'Danh sách các loại ảnh được lưu', icon: 'pi pi-fw pi-bookmark', to: '/type-images' },
+                        { label: 'Tạo một loại ảnh', icon: 'pi pi-fw pi-bookmark', to: '/type-images/create' }
                     ]
                 }
             ]

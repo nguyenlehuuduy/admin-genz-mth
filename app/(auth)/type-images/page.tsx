@@ -1,18 +1,17 @@
 import { BreadCrumb } from 'primereact/breadcrumb';
-import CreateNotificationListPageDataFetcher from './data-fetcher';
-export default function CreateRolePage() {
+import TypeImageListPageDataFetcher from './data-fetcher';
+
+export default function ListTypeImagePage() {
     const breadcrumbHome = { icon: 'pi pi-home', to: '/' };
     const breadcrumbItems = [
         { label: 'trang chủ', url: '/' },
-        { label: 'danh sách quyền', url: '/roles' },
-        { label: 'tạo quyền', url: '/roles/create' }
+        { label: 'danh sách type image', url: '/type-images' }
     ];
     return (
         <div className="grid">
             <BreadCrumb home={breadcrumbHome} model={breadcrumbItems} />
-
             <div className="col-12">
-                <CreateNotificationListPageDataFetcher />
+                <TypeImageListPageDataFetcher />
             </div>
         </div>
     );

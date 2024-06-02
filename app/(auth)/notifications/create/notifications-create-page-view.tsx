@@ -10,49 +10,58 @@ import LoadingBlockUI from "../../component/loading-block-ui";
 import { useSessionStorage } from "primereact/hooks";
 import { useRouter } from "next/navigation";
 import { postNotification } from "@/app/api/services/notificationService";
+import { AutoComplete, AutoCompleteCompleteEvent } from "primereact/autocomplete";
+import { AccountSearchForCard, searchAccount } from "@/app/api/services/accountService";
+import { objectToQueryParams } from "@/app/ulti/ulti";
+import { Dropdown } from "primereact/dropdown";
+import { TypeNotificationForCard } from "@/app/api/services/typeNotificationService";
 
-type PropsComponent = {
-
-}
 
 type FormikType = {
-    accountId: string;
-    postId: string;
-    postShareId: string;
-    commentId: string;
-    reactionId: string;
-    followerId: string;
-    messageNotifications: string;
-    typeNotificationId: string;
+  account: Array<AccountSearchForCard>;
+  postId: string;
+  postShareId: string;
+  commentId: string;
+  reactionId: string;
+  followerId: string;
+  messageNotifications: string;
+  typeNotificationId: string;
 
 };
 
-type Errorkeys = 'accountId' | 'postId'|'postShareId'|'commentId'|'reactionId'|'followerId'|'messageNotifications'|'typeNotificationId';
+type Errorkeys = 'account' | 'postId' | 'postShareId' | 'commentId' | 'reactionId' | 'followerId' | 'messageNotifications' | 'typeNotificationId';
+
+type PropsComponent = {
+  listTypeNotification: Array<TypeNotificationForCard>
+}
 
 export default function CreateNotificationPageView(props: PropsComponent) {
   const [loading, setLoading] = useState<boolean>(false)
+  const [accountFilter, setAccountFilter] = useState<Array<AccountSearchForCard>>(
+    []
+  );
   const [, setResultMessage] = useSessionStorage("", "result-message");
   const router = useRouter()
   const formik = useFormik({
     initialValues: {
-        accountId: '',
-        messageNotifications: '',
-        postId: '',
-        postShareId: '',
-        commentId: '',
-        reactionId: '',
-        followerId: '',
-        typeNotificationId: '',
+      account: [],
+      messageNotifications: '',
+      postId: '',
+      postShareId: '',
+      commentId: '',
+      reactionId: '',
+      followerId: '',
+      typeNotificationId: '',
 
     },
     validate: (data: FormikType) => {
       const errors: {
-        accountId?: string;
+        account?: string;
         messageNotifications?: string;
         typeNotificationId?: string;
       } = {};
-      if (!data.accountId) {
-        errors.accountId = 'chưa nhập ID account';
+      if (!data.account?.length) {
+        errors.account = 'chưa chọn thông báo đến cho tài khoản';
       }
       if (!data.messageNotifications) {
         errors.messageNotifications = 'chưa nhập mô tả thông báo này';
@@ -66,24 +75,38 @@ export default function CreateNotificationPageView(props: PropsComponent) {
     onSubmit: async (data: FormikType) => {
       setLoading(true)
       await postNotification({
-          accountId: data.accountId,
-          messageNotifications: data.messageNotifications,
-          postId: data.postId,
-          postShareId: data.postShareId,
-          commentId: data.commentId,
-          reactionId: data.reactionId,
-          followerId: data.followerId,
-          typeNotificationId: data.typeNotificationId,
+        accountId: data.account.map(item => item.id),
+        messageNotifications: data.messageNotifications,
+        postId: data.postId,
+        postShareId: data.postShareId,
+        commentId: data.commentId,
+        reactionId: data.reactionId,
+        followerId: data.followerId,
+        typeNotificationId: data.typeNotificationId,
       }).then((rs) => {
         if (rs) {
           setResultMessage("Tạo mới một thông báo thành công");
-          router.push("/notifications")
+          router.replace("/notifications")
         }
       })
       setLoading(false);
     }
   });
 
+  const onSearchAccount = async (key: AutoCompleteCompleteEvent) => {
+    setTimeout(() => {
+      const query = {
+        keyword: key.query
+      }
+      searchAccount(objectToQueryParams(query)).then((rs) => {
+        if (rs) {
+          setAccountFilter(rs)
+        }
+      }).catch((e) => {
+        console.error(e)
+      });
+    }, 800)
+  };
 
   const handleErrorValidate = (key: Errorkeys) => {
     return !!(formik.touched[key] && formik.errors[key]);
@@ -103,13 +126,18 @@ export default function CreateNotificationPageView(props: PropsComponent) {
     <form onSubmit={formik.handleSubmit}>
       <h5>Tạo thông báo (Notification)</h5>
       <div className="field">
-        <label htmlFor="accountId">ID account</label>
-        <InputText
-          className={`${handleErrorValidate('accountId') && 'p-invalid'}`}
-          id="accountId" type="text"
-          value={formik.values.accountId}
-          onChange={(e) => formik.setFieldValue("accountId", e.target.value)} />
-        <div>{errorFormMessage('accountId', handleErrorValidate('accountId'))}</div>
+        <label htmlFor="accountId">chọn tài khoản thông báo tới</label>
+        <AutoComplete
+          id="autocomplete"
+          value={formik.values.account}
+          onChange={(e) => formik.setFieldValue("account", e.target.value)}
+          suggestions={accountFilter}
+          completeMethod={(e) => onSearchAccount(e)}
+          field="full_name"
+          multiple
+          showEmptyMessage
+        />
+        <div>{errorFormMessage('account', handleErrorValidate('account'))}</div>
       </div>
       <div className="field">
         <label htmlFor="messageNotifications">Mô tả</label>
@@ -122,11 +150,13 @@ export default function CreateNotificationPageView(props: PropsComponent) {
       </div>
       <div className="field">
         <label htmlFor="typeNotificationId">ID loại thông báo</label>
-        <InputText
-          className={`${handleErrorValidate('typeNotificationId') && 'p-invalid'}`}
-          id="typeNotificationId" type="text"
+        <Dropdown
+          options={props.listTypeNotification}
           value={formik.values.typeNotificationId}
-          onChange={(e) => formik.setFieldValue("typeNotificationId", e.target.value)} />
+          onChange={(e) => formik.setFieldValue("typeNotificationId", e.value)}
+          optionLabel="type_name"
+          optionValue="id"
+        />
         <div>{errorFormMessage('typeNotificationId', handleErrorValidate('typeNotificationId'))}</div>
       </div>
       <Button label="tạo" severity="success" type="submit" />

@@ -1,6 +1,6 @@
 export type NotificationForCreate = {
-    
-    accountId: string;
+
+    accountId: Array<string>;
     postId: string;
     postShareId: string;
     commentId: string;
