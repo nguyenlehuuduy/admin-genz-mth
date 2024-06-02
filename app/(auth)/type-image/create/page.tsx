@@ -1,17 +1,18 @@
 import { BreadCrumb } from 'primereact/breadcrumb';
-import TabMenuListPageDataFetcher from './data-fetcher';
-
-export default async function ListTabMenuPage() {
+import CreateTypeImagePageView from './type-image-create-page-view';
+export default function CreateRolePage() {
     const breadcrumbHome = { icon: 'pi pi-home', to: '/' };
     const breadcrumbItems = [
         { label: 'trang chủ', url: '/' },
-        { label: 'Danh sách Tab Menu', url: '/tab-menu' }
+        { label: 'danh sách tính năng', url: '/tab-menu' },
+        { label: 'tạo tính năng mới', url: '/tab-menu/create' }
     ];
     return (
         <div className="grid">
             <BreadCrumb home={breadcrumbHome} model={breadcrumbItems} />
+
             <div className="col-12">
-                <TabMenuListPageDataFetcher />
+                <CreateTypeImagePageView />
             </div>
         </div>
     );
