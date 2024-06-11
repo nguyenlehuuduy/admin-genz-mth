@@ -89,6 +89,14 @@ const AppMenu = () => {
                         { label: 'Danh sách các loại ảnh được lưu', icon: 'pi pi-fw pi-bookmark', to: '/type-images' },
                         { label: 'Tạo một loại ảnh', icon: 'pi pi-fw pi-bookmark', to: '/type-images/create' }
                     ]
+                },
+                {
+                    label: 'Favorite tag',
+                    icon: 'pi pi-fw pi-list',
+                    items: [
+                        { label: 'Danh sách các favorite tag', icon: 'pi pi-fw pi-bookmark', to: '/favorite-tag' },
+                        { label: 'Tạo một favorite tag', icon: 'pi pi-fw pi-bookmark', to: '/favorite-tag/create' }
+                    ]
                 }
             ]
         }
