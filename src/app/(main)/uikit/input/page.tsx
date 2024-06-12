@@ -1,4 +1,5 @@
 "use client";
+import { CountryService } from "@/demo/service/CountryService";
 import type { Demo, Page } from "@/types";
 import {
     AutoComplete,
@@ -27,7 +28,6 @@ import { SelectButton } from "primereact/selectbutton";
 import { Slider } from "primereact/slider";
 import { ToggleButton } from "primereact/togglebutton";
 import { useEffect, useState } from "react";
-import { CountryService } from "../../../../demo/service/CountryService";
 
 interface InputValue {
     name: string;

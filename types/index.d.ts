@@ -19,9 +19,7 @@ import {
     AppConfigProps,
     NodeRef,
     AppTopbarRef,
-    MenuModelItem,
-    AppMenuItemProps,
-    AppMenuItem
+    MenuModelItem
 } from './layout';
 import { Demo, LayoutType, SortOrderType, CustomEvent, ChartDataState, ChartOptionsState, AppMailSidebarItem, AppMailReplyProps, AppMailProps } from './demo';
 
@@ -47,7 +45,6 @@ export type {
     AppConfigProps,
     NodeRef,
     AppTopbarRef,
-    AppMenuItemProps,
     ChildContainerProps,
     Demo,
     LayoutType,
@@ -57,6 +54,5 @@ export type {
     ChartOptionsState,
     AppMailSidebarItem,
     AppMailReplyProps,
-    AppMailProps,
-    AppMenuItem
+    AppMailProps
 };

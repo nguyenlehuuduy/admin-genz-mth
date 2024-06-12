@@ -7,9 +7,9 @@ import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
 import { Rating } from 'primereact/rating';
 import { PickList } from 'primereact/picklist';
 import { OrderList } from 'primereact/orderlist';
-import { ProductService } from '../../../../demo/service/ProductService';
 import { InputText } from 'primereact/inputtext';
 import type { Demo } from '@/types';
+import { ProductService } from '@/demo/service/ProductService';
 
 const ListDemo = () => {
     const listValue = [

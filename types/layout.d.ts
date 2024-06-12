@@ -84,23 +84,3 @@ export interface MenuModel {
     target?: HTMLAttributeAnchorTarget;
     seperator?: boolean;
 }
-
-export interface AppMenuItem extends MenuModel {
-    items?: AppMenuItem[];
-    badge?: 'UPDATED' | 'NEW';
-    badgeClass?: string;
-    class?: string;
-    preventExact?: boolean;
-    visible?: boolean;
-    disabled?: boolean;
-    replaceUrl?: boolean;
-    command?: ({ originalEvent, item }: CommandProps) => void;
-}
-
-export interface AppMenuItemProps {
-    item?: AppMenuItem;
-    parentKey?: string;
-    index?: number;
-    root?: boolean;
-    className?: string;
-}

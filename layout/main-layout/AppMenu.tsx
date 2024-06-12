@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from 'react';
-import AppMenuitem from './AppMenuitem';
 import { MenuProvider } from '../context/menucontext';
-import { AppMenuItem } from '@/types';
+import Link from 'next/link';
+
 
 const AppMenu = () => {
-    const model: AppMenuItem[] = [
+    const model = [
         {
             label: 'Quản lí',
             items: [
@@ -101,13 +101,26 @@ const AppMenu = () => {
             ]
         }
     ];
-
     return (
         <MenuProvider>
             <ul className="layout-menu">
                 {model.map((item, i) => {
-                    return !item?.seperator ? <AppMenuitem item={item} root={true} index={i} key={item.label} /> : <li className="menu-separator"></li>;
+                    return (<div>
+                        <li className="menu-separator" key={i}>{item.label}</li>
+                        <div>
+                            {item.items.map((it, index) => (
+                                <div key={index}>
+                                    {it.items.map((item, index) => (
+                                        <div key={index}>
+                                            <Link href={item.to} >{item.label}</Link>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>);
                 })}
+
             </ul>
         </MenuProvider>
     );

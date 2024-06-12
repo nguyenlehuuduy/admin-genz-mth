@@ -84,7 +84,7 @@ export default function DetailPostPageView(props: PropsComponent) {
 
           <DataTable value={props.detailPost.all_like_info} scrollable scrollHeight="400px" className="mt-3">
             <Column field="account.name" header="Tên tài khoản" style={{ flexGrow: 1, flexBasis: '160px' }} frozen className="font-bold"></Column>
-            <Column header="Ảnh đại diện" style={{ flexGrow: 1, flexBasis: '200px' }} body={(data: PostDetailForCard) => <Image src={data.account.avata} />}></Column>
+            <Column header="Ảnh đại diện" style={{ flexGrow: 1, flexBasis: '200px' }} body={(data: PostDetailForCard) => <Image src={data.account.avata} alt="avata" />}></Column>
             <Column field="created_at" header="Thời gian thực hiện" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
             <Column field="updated_at" header="Cập nhật" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
             <Column field="" header="tác vụ" style={{ flexGrow: 1, flexBasis: '200px' }} body={(data: PostDetailForCard) => <Link href={''}> chi tiết tài khoản </Link>}></Column>

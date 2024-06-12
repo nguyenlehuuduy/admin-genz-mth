@@ -7,9 +7,9 @@ import { StyleClass } from 'primereact/styleclass';
 import { Button } from 'primereact/button';
 import { Ripple } from 'primereact/ripple';
 import { Divider } from 'primereact/divider';
-import { LayoutContext } from '../../../layout/context/layoutcontext';
 import { NodeRef } from '@/types';
 import { classNames } from 'primereact/utils';
+import { LayoutContext } from '@/layout/context/layoutcontext';
 
 const LandingPage = () => {
     const [isHidden, setIsHidden] = useState(false);

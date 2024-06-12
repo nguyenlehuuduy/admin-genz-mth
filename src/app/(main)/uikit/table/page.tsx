@@ -1,6 +1,4 @@
 'use client';
-import { CustomerService } from '../../../../demo/service/CustomerService';
-import { ProductService } from '../../../../demo/service/ProductService';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
@@ -18,6 +16,8 @@ import { TriStateCheckbox } from 'primereact/tristatecheckbox';
 import { classNames } from 'primereact/utils';
 import React, { useEffect, useState } from 'react';
 import type { Demo } from '@/types';
+import { ProductService } from '@/demo/service/ProductService';
+import { CustomerService } from '@/demo/service/CustomerService';
 
 const TableDemo = () => {
     const [customers1, setCustomers1] = useState<Demo.Customer[]>([]);

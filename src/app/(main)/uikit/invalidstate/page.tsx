@@ -1,5 +1,6 @@
 "use client";
 
+import { CountryService } from "@/demo/service/CountryService";
 import type { Demo } from "@/types";
 import {
     AutoComplete,
@@ -15,7 +16,6 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { MultiSelect } from "primereact/multiselect";
 import { Password } from "primereact/password";
 import { useEffect, useState } from "react";
-import { CountryService } from "../../../../demo/service/CountryService";
 
 const InvalidStateDemo = () => {
     const [countries, setCountries] = useState<Demo.Country[]>([]);

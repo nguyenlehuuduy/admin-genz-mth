@@ -1,4 +1,5 @@
 "use client";
+import { CountryService } from "@/demo/service/CountryService";
 import type { Demo } from "@/types";
 import {
     AutoComplete,
@@ -13,7 +14,6 @@ import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { MultiSelect } from "primereact/multiselect";
 import { useEffect, useState } from "react";
-import { CountryService } from "../../../../demo/service/CountryService";
 
 const FloatLabelDemo = () => {
     const [countries, setCountries] = useState<Demo.Country[]>([]);

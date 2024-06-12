@@ -6,9 +6,9 @@ import { InputText } from "primereact/inputtext"
 import { Message } from "primereact/message";
 import { useState } from "react";
 import LoadingBlockUI from "../../component/loading-block-ui";
-import { postRole } from "@/app/api/services/roleService";
 import { useSessionStorage } from "primereact/hooks";
 import { useRouter } from "next/navigation";
+import { postRole } from "@/src/app/api/services/roleService";
 
 type PropsComponent = {
 
