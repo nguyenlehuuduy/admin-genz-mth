@@ -76,7 +76,7 @@ export default function ListNotificationPageView(props: PropsComponent) {
             style={{ flexGrow: 1, flexBasis: '200px' }}
             body={(data: NotificationForCard) =>
               <div>
-                {data.account.map(item => <p>{item.id}- {item.fullName}</p>)}
+                {data.account.map((item, key) => <p key={key}>{item.id}- {item.fullName}</p>)}
               </div>
             }></Column>
           <Column field="type_Notification.thumbnail_Noti" header="Hình ảnh" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
