@@ -10,7 +10,8 @@ import { useSessionStorage } from 'primereact/hooks';
 import { useRouter } from 'next/navigation';
 import { postTypeNotification } from '@/app/api/services/typeNotificationService';
 import type { Demo } from '@/types';
-import { IconService } from '../../../../demo/service/IconService';
+import { MyIcon, getAllIconLocal } from '@/demo/service/_iconService';
+import { Image } from 'primereact/image';
 
 type FormikType = {
     typeName: string;
@@ -21,32 +22,11 @@ type FormikType = {
 type Errorkeys = 'typeName' | 'description' | 'thumbnailNoti';
 
 export default function CreateTypeNotificationPageView() {
-    const [icons, setIcons] = useState<Demo.Icon[]>([]);
-    const [filteredIcons, setFilteredIcons] = useState<Demo.Icon[]>([]);
+    const [filteredIcons, setFilteredIcons] = useState<MyIcon[]>([]);
     useEffect(() => {
-        IconService.getIcons().then((data) => {
-            data.sort((icon1, icon2) => {
-                if (icon1.properties!.name < icon2.properties!.name) return -1;
-                else if (icon1.properties!.name < icon2.properties!.name) return 1;
-                else return 0;
-            });
-
-            setIcons(data);
-            setFilteredIcons(data);
-        });
+        getAllIconLocal.getIcons().then((data) => setFilteredIcons(data));
     }, []);
 
-    const onFilter = (event: React.FormEvent<HTMLInputElement>) => {
-        if (!event.currentTarget.value) {
-            setFilteredIcons(icons);
-        } else {
-            setFilteredIcons(
-                icons.filter((it) => {
-                    return it.icon && it.icon.tags && it.icon.tags[0].includes(event.currentTarget.value);
-                })
-            );
-        }
-    };
     const [loading, setLoading] = useState<boolean>(false);
     const [, setResultMessage] = useSessionStorage('', 'result-message');
     const router = useRouter();
@@ -120,21 +100,19 @@ export default function CreateTypeNotificationPageView() {
                 </div>
                 <Button label="tạo" severity="success" type="submit" />
             </form>
-            <div>
-                <InputText type="text" className="w-full p-3 mt-3 mb-5" onInput={onFilter} placeholder="Tìm kiếm icon cho loại thống báo..." />
-            </div>
-            <div className="grid icons-list text-center">
+
+            <div className="grid icons-list text-center mt-5">
                 {filteredIcons &&
-                    filteredIcons.map((iconMeta) => {
-                        const { icon, properties } = iconMeta;
+                    filteredIcons.map((iconMeta, index) => {
 
                         return (
-                            icon?.tags?.indexOf('deprecate') === -1 && (
-                                <div className="col-6 sm:col-4 lg:col-3 xl:col-2 pb-5 cursor-pointer" key={properties?.name} onClick={() => formik.setFieldValue('thumbnailNoti', properties?.name)}>
-                                    <i className={'text-2xl mb-2 pi pi-' + properties?.name}></i>
-                                    <div>pi-{properties?.name}</div>
-                                </div>
-                            )
+                            <div
+                                className="col-6 sm:col-4 lg:col-3 xl:col-2 pb-5 cursor-pointer"
+                                key={index}
+                                onClick={() => formik.setFieldValue('thumbnailNoti', iconMeta?.name)}>
+                                <Image src={iconMeta.path} alt='icon-main' />
+                                <div>{iconMeta?.name}</div>
+                            </div>
                         );
                     })}
             </div>

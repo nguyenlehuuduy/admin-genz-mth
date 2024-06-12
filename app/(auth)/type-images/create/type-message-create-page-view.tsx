@@ -14,9 +14,10 @@ type PropsComponent = {};
 
 type FormikType = {
     nameTypeImage: string;
+    id: string;
 };
 
-type Errorkeys = 'nameTypeImage';
+type Errorkeys = 'nameTypeImage' | 'id';
 
 export default function CreateTypeImagePageView(props: PropsComponent) {
     const [loading, setLoading] = useState<boolean>(false);
@@ -24,20 +25,26 @@ export default function CreateTypeImagePageView(props: PropsComponent) {
     const router = useRouter();
     const formik = useFormik({
         initialValues: {
-            nameTypeImage: ''
+            nameTypeImage: '',
+            id: ''
         },
         validate: (data: FormikType) => {
             const errors: {
                 nameTypeImage?: string;
+                id?: string;
             } = {};
             if (!data.nameTypeImage) {
                 errors.nameTypeImage = 'chưa nhập loại hình ảnh';
+            }
+            if (!data.id) {
+                errors.id = 'chưa nhập id cho loại hình ảnh này';
             }
             return errors;
         },
         onSubmit: async (data: FormikType) => {
             setLoading(true);
             await postTypeImage({
+                id: data.id,
                 typeImageName: data.nameTypeImage
             }).then((rs) => {
                 if (rs) {
@@ -62,6 +69,11 @@ export default function CreateTypeImagePageView(props: PropsComponent) {
             <LoadingBlockUI visible={loading} />
             <form onSubmit={formik.handleSubmit}>
                 <h5>Tạo loại hình ảnh (Type Message)</h5>
+                <div className="field">
+                    <label htmlFor="nameTypeImage">id</label>
+                    <InputText className={`${handleErrorValidate('id') && 'p-invalid'}`} id="id" type="text" value={formik.values.id} onChange={(e) => formik.setFieldValue('id', e.target.value)} />
+                    <div>{errorFormMessage('id', handleErrorValidate('id'))}</div>
+                </div>
                 <div className="field">
                     <label htmlFor="nameTypeImage">Tên loại</label>
                     <InputText className={`${handleErrorValidate('nameTypeImage') && 'p-invalid'}`} id="nameTypeImage" type="text" value={formik.values.nameTypeImage} onChange={(e) => formik.setFieldValue('nameTypeImage', e.target.value)} />

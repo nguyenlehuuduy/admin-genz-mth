@@ -30,9 +30,9 @@ export async function postPermissionPost(body: PermissionPostForPost): Promise<P
   const data: PermissionPostForResponse = result.response;
   if (result.status === 201) {
     return {
-        id: data.id,
-        code: data.code,
-        description: data.description,
+      id: data.id,
+      code: data.code,
+      description: data.description,
     };
   }
 }

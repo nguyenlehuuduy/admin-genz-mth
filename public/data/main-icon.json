@@ -1,0 +1,308 @@
+{
+  "icons": [
+    {
+      "name": "53icon-blue-.svg",
+      "path": "/images/icon-mains/53icon-blue-.svg"
+    },
+    {
+      "name": "53icon-brown.svg",
+      "path": "/images/icon-mains/53icon-brown.svg"
+    },
+    {
+      "name": "54icon-blue-.svg",
+      "path": "/images/icon-mains/54icon-blue-.svg"
+    },
+    {
+      "name": "54icon-brown.svg",
+      "path": "/images/icon-mains/54icon-brown.svg"
+    },
+    {
+      "name": "55icon-blue-.svg",
+      "path": "/images/icon-mains/55icon-blue-.svg"
+    },
+    {
+      "name": "55icon-brown.svg",
+      "path": "/images/icon-mains/55icon-brown.svg"
+    },
+    {
+      "name": "56icon-blue-.svg",
+      "path": "/images/icon-mains/56icon-blue-.svg"
+    },
+    {
+      "name": "56icon-brown.svg",
+      "path": "/images/icon-mains/56icon-brown.svg"
+    },
+    {
+      "name": "57icon-blue-.svg",
+      "path": "/images/icon-mains/57icon-blue-.svg"
+    },
+    {
+      "name": "57icon-brown.svg",
+      "path": "/images/icon-mains/57icon-brown.svg"
+    },
+    {
+      "name": "58icon-blue-.svg",
+      "path": "/images/icon-mains/58icon-blue-.svg"
+    },
+    {
+      "name": "58icon-brown.svg",
+      "path": "/images/icon-mains/58icon-brown.svg"
+    },
+    {
+      "name": "59icon-blue-.svg",
+      "path": "/images/icon-mains/59icon-blue-.svg"
+    },
+    {
+      "name": "59icon-brown.svg",
+      "path": "/images/icon-mains/59icon-brown.svg"
+    },
+    {
+      "name": "60icon-blue-.svg",
+      "path": "/images/icon-mains/60icon-blue-.svg"
+    },
+    {
+      "name": "60icon-brown.svg",
+      "path": "/images/icon-mains/60icon-brown.svg"
+    },
+    {
+      "name": "61icon-blue-.svg",
+      "path": "/images/icon-mains/61icon-blue-.svg"
+    },
+    {
+      "name": "61icon-brown.svg",
+      "path": "/images/icon-mains/61icon-brown.svg"
+    },
+    {
+      "name": "62icon-blue-.svg",
+      "path": "/images/icon-mains/62icon-blue-.svg"
+    },
+    {
+      "name": "62icon-brown.svg",
+      "path": "/images/icon-mains/62icon-brown.svg"
+    },
+    {
+      "name": "63icon-brown.svg",
+      "path": "/images/icon-mains/63icon-brown.svg"
+    },
+    {
+      "name": "64icon-brown.svg",
+      "path": "/images/icon-mains/64icon-brown.svg"
+    },
+    {
+      "name": "65icon-brown.svg",
+      "path": "/images/icon-mains/65icon-brown.svg"
+    },
+    {
+      "name": "66icon-brown.svg",
+      "path": "/images/icon-mains/66icon-brown.svg"
+    },
+    {
+      "name": "67icon-brown.svg",
+      "path": "/images/icon-mains/67icon-brown.svg"
+    },
+    {
+      "name": "68icon-brown.svg",
+      "path": "/images/icon-mains/68icon-brown.svg"
+    },
+    {
+      "name": "69icon-brown.svg",
+      "path": "/images/icon-mains/69icon-brown.svg"
+    },
+    {
+      "name": "70icon-brown.svg",
+      "path": "/images/icon-mains/70icon-brown.svg"
+    },
+    {
+      "name": "71icon-brown.svg",
+      "path": "/images/icon-mains/71icon-brown.svg"
+    },
+    {
+      "name": "73icon-brown.svg",
+      "path": "/images/icon-mains/73icon-brown.svg"
+    },
+    {
+      "name": "74icon-blue-.svg",
+      "path": "/images/icon-mains/74icon-blue-.svg"
+    },
+    {
+      "name": "75icon-brown.svg",
+      "path": "/images/icon-mains/75icon-brown.svg"
+    },
+    {
+      "name": "77icon-blue-.svg",
+      "path": "/images/icon-mains/77icon-blue-.svg"
+    },
+    {
+      "name": "77icon-brown.svg",
+      "path": "/images/icon-mains/77icon-brown.svg"
+    },
+    {
+      "name": "78icon-blue-.svg",
+      "path": "/images/icon-mains/78icon-blue-.svg"
+    },
+    {
+      "name": "78icon-brown.svg",
+      "path": "/images/icon-mains/78icon-brown.svg"
+    },
+    {
+      "name": "79icon-blue-.svg",
+      "path": "/images/icon-mains/79icon-blue-.svg"
+    },
+    {
+      "name": "79icon-brown.svg",
+      "path": "/images/icon-mains/79icon-brown.svg"
+    },
+    {
+      "name": "80icon-blue-.svg",
+      "path": "/images/icon-mains/80icon-blue-.svg"
+    },
+    {
+      "name": "80icon-brown.svg",
+      "path": "/images/icon-mains/80icon-brown.svg"
+    },
+    {
+      "name": "81icon-blue-.svg",
+      "path": "/images/icon-mains/81icon-blue-.svg"
+    },
+    {
+      "name": "81icon-brown.svg",
+      "path": "/images/icon-mains/81icon-brown.svg"
+    },
+    {
+      "name": "82icon-blue-.svg",
+      "path": "/images/icon-mains/82icon-blue-.svg"
+    },
+    {
+      "name": "82icon-brown.svg",
+      "path": "/images/icon-mains/82icon-brown.svg"
+    },
+    {
+      "name": "83icon-blue-.svg",
+      "path": "/images/icon-mains/83icon-blue-.svg"
+    },
+    {
+      "name": "83icon-brown.svg",
+      "path": "/images/icon-mains/83icon-brown.svg"
+    },
+    {
+      "name": "84icon-blue-.svg",
+      "path": "/images/icon-mains/84icon-blue-.svg"
+    },
+    {
+      "name": "84icon-brown.svg",
+      "path": "/images/icon-mains/84icon-brown.svg"
+    },
+    {
+      "name": "85icon-blue-.svg",
+      "path": "/images/icon-mains/85icon-blue-.svg"
+    },
+    {
+      "name": "85icon-brown.svg",
+      "path": "/images/icon-mains/85icon-brown.svg"
+    },
+    {
+      "name": "86icon-blue-.svg",
+      "path": "/images/icon-mains/86icon-blue-.svg"
+    },
+    {
+      "name": "86icon-brown.svg",
+      "path": "/images/icon-mains/86icon-brown.svg"
+    },
+    {
+      "name": "87icon-blue-.svg",
+      "path": "/images/icon-mains/87icon-blue-.svg"
+    },
+    {
+      "name": "87icon-brown.svg",
+      "path": "/images/icon-mains/87icon-brown.svg"
+    },
+    {
+      "name": "88icon-blue-.svg",
+      "path": "/images/icon-mains/88icon-blue-.svg"
+    },
+    {
+      "name": "88icon-brown.svg",
+      "path": "/images/icon-mains/88icon-brown.svg"
+    },
+    {
+      "name": "89icon-blue-.svg",
+      "path": "/images/icon-mains/89icon-blue-.svg"
+    },
+    {
+      "name": "89icon-brown.svg",
+      "path": "/images/icon-mains/89icon-brown.svg"
+    },
+    {
+      "name": "90icon-blue-.svg",
+      "path": "/images/icon-mains/90icon-blue-.svg"
+    },
+    {
+      "name": "90icon-brown.svg",
+      "path": "/images/icon-mains/90icon-brown.svg"
+    },
+    {
+      "name": "91icon-blue-.svg",
+      "path": "/images/icon-mains/91icon-blue-.svg"
+    },
+    {
+      "name": "91icon-brown.svg",
+      "path": "/images/icon-mains/91icon-brown.svg"
+    },
+    {
+      "name": "92icon-blue-.svg",
+      "path": "/images/icon-mains/92icon-blue-.svg"
+    },
+    {
+      "name": "92icon-brown.svg",
+      "path": "/images/icon-mains/92icon-brown.svg"
+    },
+    {
+      "name": "93icon-blue-.svg",
+      "path": "/images/icon-mains/93icon-blue-.svg"
+    },
+    {
+      "name": "93icon-brown.svg",
+      "path": "/images/icon-mains/93icon-brown.svg"
+    },
+    {
+      "name": "94icon-blue-.svg",
+      "path": "/images/icon-mains/94icon-blue-.svg"
+    },
+    {
+      "name": "95icon-blue-.svg",
+      "path": "/images/icon-mains/95icon-blue-.svg"
+    },
+    {
+      "name": "96icon-blue-.svg",
+      "path": "/images/icon-mains/96icon-blue-.svg"
+    },
+    {
+      "name": "97icon-blue-.svg",
+      "path": "/images/icon-mains/97icon-blue-.svg"
+    },
+    {
+      "name": "50icon-blue-.svg",
+      "path": "/images/icon-mains/50icon-blue-.svg"
+    },
+    {
+      "name": "50icon-brown.svg",
+      "path": "/images/icon-mains/50icon-brown.svg"
+    },
+    {
+      "name": "51icon-blue-.svg",
+      "path": "/images/icon-mains/51icon-blue-.svg"
+    },
+    {
+      "name": "51icon-brown.svg",
+      "path": "/images/icon-mains/51icon-brown.svg"
+    },
+    {
+      "name": "52icon-blue-.svg",
+      "path": "/images/icon-mains/52icon-blue-.svg"
+    },
+    {
+      "name": "52icon-brown.svg",
+      "path": "/images/icon-mains/52icon-brown.svg"
+    }
+  ]
+}
